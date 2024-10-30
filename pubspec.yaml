@@ -40,6 +40,8 @@ dependencies:
   http: ^1.2.1
   image_picker: ^0.8.4+8
   file_picker: ^5.0.0
+  table_calendar: ^3.1.2
+
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +72,20 @@ flutter:
     - assets/exit.png
     - assets/back.png
     - assets/upload.png
+    - assets/hide.png
+    - assets/view.png
+    - assets/door.png
+    - assets/calendar.png
+    - assets/reservation.png
+    - assets/dda053863f3b684bb4b60d3390211a88.jpeg
+    - assets/solar_tv-broken.png
+    - assets/solar_chair-broken.png
+    - assets/material-symbols_wifi.png
+    - assets/icon-park-outline_sound-one.png
+    - assets/hugeicons_smart-ac.png
+    - assets/page 1.png
+    - assets/page 2.png
+    - assets/FST.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'home.dart';
+import 'Login.dart';
+import 'ForgetPass.dart';
+import 'Splash1.dart';
+import 'Splash2.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,10 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.white,
-        body: HomePage(),
-      ),
+      home: Splash1(), // Set Splash1 as the initial page
     );
   }
 }
@@ -25,6 +25,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool _isObscured = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,15 +39,65 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Positioned(
-            left: 60,
-            top: 280, // Adjust the position as needed
+            left: 25,
+            top: 65,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          Login()), // Replace with your target page
+                );
+              },
+              child: Image.asset(
+                'assets/back.png', // Ganti dengan path gambar Anda
+                width: 30,
+                height: 30,
+                fit: BoxFit.contain,
+              ),
+            ),
+          ),
+          Positioned(
+            left: 35,
+            top: 118, // Adjust the position as needed
             child: Container(
               child: Text(
-                'Layanan Peminjaman Ruangan',
+                'Selamat Datang',
                 style: GoogleFonts.getFont(
                   'Inter',
-                  fontWeight: FontWeight.w700,
-                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 21,
+                  color: Color.fromARGB(255, 0, 0, 0),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 35,
+            top: 150, // Adjust the position as needed
+            child: Container(
+              child: Text(
+                'Masukkan detail akunmu menggunakan',
+                style: GoogleFonts.getFont(
+                  'Inter',
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14,
+                  color: Color.fromARGB(255, 0, 0, 0),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 35,
+            top: 165, // Adjust the position as needed
+            child: Container(
+              child: Text(
+                'akun SALAM ',
+                style: GoogleFonts.getFont(
+                  'Inter',
+                  fontWeight: FontWeight.w400,
+                  fontSize: 14,
                   color: Color.fromARGB(255, 0, 0, 0),
                 ),
               ),
@@ -53,10 +105,10 @@ class _HomePageState extends State<HomePage> {
           ),
           Positioned(
             left: 40,
-            top: 330, // Adjust the position as needed
+            top: 270, // Adjust the position as needed
             child: Container(
               child: Text(
-                'Masukkan Username',
+                'Username',
                 style: GoogleFonts.getFont(
                   'Inter',
                   fontWeight: FontWeight.w300,
@@ -68,7 +120,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Positioned(
             left: 10,
-            top: 360, // Atur posisi sesuai kebutuhan
+            top: 300, // Atur posisi sesuai kebutuhan
             child: Container(
               margin: EdgeInsets.fromLTRB(18, 0, 15.8, 2),
               width: 360,
@@ -118,10 +170,10 @@ class _HomePageState extends State<HomePage> {
           ),
           Positioned(
             left: 40,
-            top: 440, // Adjust the position as needed
+            top: 380, // Adjust the position as needed
             child: Container(
               child: Text(
-                'Masukkan Password',
+                'Password',
                 style: GoogleFonts.getFont(
                   'Inter',
                   fontWeight: FontWeight.w300,
@@ -131,74 +183,166 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
+
+          // Password Textfield
+          // Positioned(
+          //   left: 10,
+          //   top: 470, // Atur posisi sesuai kebutuhan
+          //   child: Container(
+          //     margin: EdgeInsets.fromLTRB(18, 0, 15.8, 2),
+          //     width: 360,
+          //     height: 50,
+          //     child: TextField(
+          //       decoration: InputDecoration(
+          //         filled: true,
+          //         fillColor: Color.fromARGB(
+          //             255, 253, 254, 255), // Warna latar belakang box
+          //         hintText: 'Password',
+          //         hintStyle: GoogleFonts.getFont(
+          //           'Poppins',
+          //           fontWeight: FontWeight.w400,
+          //           fontSize: 16,
+          //           color: Color.fromARGB(
+          //               255, 16, 15, 15), // Warna teks placeholder
+          //         ),
+          //         contentPadding: EdgeInsets.symmetric(
+          //             vertical: 14, horizontal: 20), // Padding dalam box
+          //         border: OutlineInputBorder(
+          //           borderRadius: BorderRadius.circular(
+          //               20), // Bentuk box menjadi melengkung
+          //         ),
+          //         enabledBorder: OutlineInputBorder(
+          //           borderRadius: BorderRadius.circular(20),
+          //           borderSide: BorderSide(
+          //             color: Color.fromARGB(255, 200, 200,
+          //                 200), // Warna border ketika tidak fokus
+          //           ),
+          //         ),
+          //         focusedBorder: OutlineInputBorder(
+          //           borderRadius: BorderRadius.circular(20),
+          //           borderSide: BorderSide(
+          //             color: Color.fromARGB(
+          //                 255, 16, 15, 15), // Warna border ketika fokus
+          //           ),
+          //         ),
+          //       ),
+          //       style: GoogleFonts.getFont(
+          //         'Poppins',
+          //         fontWeight: FontWeight.w600,
+          //         fontSize: 18,
+          //         color: Color.fromARGB(255, 16, 15, 15), // Warna teks input
+          //       ),
+          //     ),
+          //   ),
+          // ),
+
           Positioned(
             left: 10,
-            top: 470, // Atur posisi sesuai kebutuhan
+            top: 410,
             child: Container(
               margin: EdgeInsets.fromLTRB(18, 0, 15.8, 2),
               width: 360,
               height: 50,
-              child: TextField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Color.fromARGB(
-                      255, 253, 254, 255), // Warna latar belakang box
-                  hintText: 'Password',
-                  hintStyle: GoogleFonts.getFont(
-                    'Poppins',
-                    fontWeight: FontWeight.w400,
-                    fontSize: 16,
-                    color: Color.fromARGB(
-                        255, 16, 15, 15), // Warna teks placeholder
-                  ),
-                  contentPadding: EdgeInsets.symmetric(
-                      vertical: 14, horizontal: 20), // Padding dalam box
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(
-                        20), // Bentuk box menjadi melengkung
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(
-                      color: Color.fromARGB(255, 200, 200,
-                          200), // Warna border ketika tidak fokus
+              child: Stack(
+                children: [
+                  TextField(
+                    obscureText:
+                        _isObscured, // Gunakan kondisi untuk menyembunyikan atau menampilkan password
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Color.fromARGB(255, 253, 254, 255),
+                      hintText: 'Password',
+                      hintStyle: GoogleFonts.getFont(
+                        'Poppins',
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 16, 15, 15),
+                      ),
+                      // contentPadding: EdgeInsets.symmetric(
+                      //   vertical: 14,
+                      //   horizontal: 50,
+                      // ),
+                      contentPadding: EdgeInsets.fromLTRB(20, 16, 0,
+                          16), // Mengatur jarak horizontal dan vertikal untuk placeholder
+                      alignLabelWithHint:
+                          true, // Menjaga placeholder tetap sejajar vertikal
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          color: Color.fromARGB(255, 200, 200, 200),
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: BorderSide(
+                          color: Color.fromARGB(255, 16, 15, 15),
+                        ),
+                      ),
+                    ),
+                    style: GoogleFonts.getFont(
+                      'Poppins',
+                      fontWeight: FontWeight.w600,
+                      fontSize: 18,
+                      color: Color.fromARGB(255, 16, 15, 15),
                     ),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(
-                      color: Color.fromARGB(
-                          255, 16, 15, 15), // Warna border ketika fokus
+                  Positioned(
+                    left: 300,
+                    top: 13,
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _isObscured =
+                              !_isObscured; // Ubah kondisi untuk menampilkan atau menyembunyikan password
+                        });
+                      },
+                      child: Image.asset(
+                        _isObscured
+                            ? 'assets/hide.png'
+                            : 'assets/view.png', // Ganti ikon sesuai kondisi
+                        width: 24,
+                        height: 24,
+                      ),
                     ),
                   ),
-                ),
-                style: GoogleFonts.getFont(
-                  'Poppins',
-                  fontWeight: FontWeight.w600,
-                  fontSize: 18,
-                  color: Color.fromARGB(255, 16, 15, 15), // Warna teks input
-                ),
+                ],
               ),
             ),
           ),
+
+          // Forget Password
           Positioned(
             left: 250,
-            top: 530, // Adjust the position as needed
-            child: Container(
-              child: Text(
-                'Lupa Kata Sandi ?',
-                style: GoogleFonts.getFont(
-                  'Inter',
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                  color: Color(0xFF213E60),
+            top: 470, // Adjust the position as needed
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          ForgetPass()), // Ganti dengan halaman tujuan
+                );
+              },
+              child: Container(
+                child: Text(
+                  'Lupa Kata Sandi ?',
+                  style: GoogleFonts.getFont(
+                    'Inter',
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                    color: Color(0xFF213E60),
+                  ),
                 ),
               ),
             ),
           ),
+
           Positioned(
             left: 5,
-            top: 570, // Atur posisi sesuai kebutuhan
+            top: 510, // Atur posisi sesuai kebutuhan
             child: Container(
               margin: EdgeInsets.fromLTRB(18, 0, 15.8, 2),
               width: 360,
@@ -207,7 +351,7 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Home()),
+                    MaterialPageRoute(builder: (context) => Splash2()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -215,7 +359,7 @@ class _HomePageState extends State<HomePage> {
                       Color(0xFFFEC868), // Warna latar belakang tombol
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(
-                        20), // Bentuk tombol menjadi lingkaran
+                        15), // Bentuk tombol menjadi lingkaran
                   ),
                   padding: EdgeInsets.symmetric(
                       vertical: 14), // Sesuaikan ukuran vertikal tombol

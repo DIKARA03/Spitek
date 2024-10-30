@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:spitek/home.dart';
+import 'home.dart';
 
 class Reservasi extends StatefulWidget {
   @override
@@ -610,18 +610,76 @@ class _ReservasiState extends State<Reservasi> {
 
               // button kirim
               Positioned(
-                left: 260,
-                top: 715, // Atur posisi sesuai kebutuhan
+                left: 15,
+                top: 725, // Atur posisi sesuai kebutuhan
                 child: Container(
                   margin: EdgeInsets.fromLTRB(18, 0, 15.8, 2),
-                  width: 90,
+                  width: 338,
                   height: 50,
                   child: ElevatedButton(
                     onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => Home()),
-                      // );
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Dialog(
+                            shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.circular(20), // Radius dialog
+                            ),
+                            child: Container(
+                              padding: EdgeInsets.all(20),
+                              child: Column(
+                                mainAxisSize:
+                                    MainAxisSize.min, // Mengatur ukuran pop-up
+                                children: [
+                                  Text(
+                                    'Berhasil Reservasi!',
+                                    style: GoogleFonts.poppins(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  SizedBox(height: 15),
+                                  Text(
+                                    'Anda Sudah Berhasil Reservasi.',
+                                    style: GoogleFonts.poppins(fontSize: 14),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  SizedBox(height: 10),
+                                  Text(
+                                    'Silahkan Cek Pesanan Anda.',
+                                    style: GoogleFonts.poppins(fontSize: 14),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  SizedBox(height: 20),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => Home()),
+                                      ); // Menutup pop-up
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Color(0xFFFEC868),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      'Kembali',
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 15,
+                                        color: Color(0xFF000000),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor:
@@ -640,8 +698,8 @@ class _ReservasiState extends State<Reservasi> {
                         'Poppins',
                         fontWeight: FontWeight.w600,
                         fontSize: 17,
-                        color: Color.fromARGB(
-                            255, 16, 15, 15), // Warna teks tombol
+                        color: Color(0xFF000000),
+                        // Warna teks tombol
                       ),
                     ),
                   ),
